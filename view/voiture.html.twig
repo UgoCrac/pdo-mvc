@@ -1,0 +1,21 @@
+<hr>
+<form action="index.php" method="post">
+	<table id="input-table">
+		<tr>
+			<th>Immatriculation</th>
+			<th>modèle</th>
+			<th>Couleur</th>
+			<th>Date de 1ère mise en circulation</th>
+		</tr>
+		{% for voiture in voitures %}
+			<tr>
+				<td><input type="text" value="{{ voiture.getImmat() }}" name="immat[]" readonly></td>
+				<td><input type="text" value="{{ voiture.getIdModele() }}" name="modele[]"></td>
+				<td><input type="text" value="{{ voiture.getCouleur() }}" name="couleur[]"></td>
+				<td><input type="text" value="{{ voiture.getDateVoiture() }}" name="date[]"></td>
+			</tr>
+		{% endfor %}
+
+	</table>
+	<input type="submit" value="Update">
+</form>

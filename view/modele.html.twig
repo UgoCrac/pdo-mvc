@@ -1,0 +1,59 @@
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Marque</th>
+		<th>Modèle</th>
+		<th>Carburant</th>
+	</tr>
+
+	{% for modele in modeles %}
+		<tr>
+			<td>{{ modele.getId() }}</td>
+			<td>{{ modele.getMarque() }}</td>
+			<td>{{ modele.getModele() }}</td>
+			<td>{{ modele.getCarburant() }}</td>
+		</tr>
+	{% endfor %}
+
+</table>
+
+
+<h1>Ajouter un nouveau modéle :</h1>
+<form action="index.php" method="post">
+	<div>
+		<label for="id">Identifiant :</label>
+		<input type="text" name="id" required>
+	</div>
+	<div>
+		<label for="marque">Marque :
+		</label>
+		<input type="text" name="marque" required>
+	</div>
+	<div>
+		<label for="modele">Modèle :
+		</label>
+		<input type="text" name="modele" required>
+	</div>
+	<div>
+		<input type="radio" id="essence" name="carburant" value="essence">
+		<label for="essence">Essence</label>
+	</div>
+	<div>
+		<input type="radio" id="diesel" name="carburant" value="diesel">
+		<label for="diesel">Diesel</label>
+	</div>
+	<div>
+		<input type="radio" id="gpl" name="carburant" value="gpl">
+		<label for="gpl">GPL</label>
+	</div>
+	<div>
+		<input type="radio" id="electrique" name="carburant" value="electrique">
+		<label for="electrique">Electrique</label>
+	</div>
+	<input type="submit" value="Ajouter">
+</form>
+
+<div>
+	<br><hr>
+	{{message}}
+</div>

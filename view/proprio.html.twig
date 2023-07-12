@@ -1,0 +1,49 @@
+<form action="index.php" method="post">
+	<fieldset>
+		<legend>
+			Accéder à vos informations :
+		</legend>
+		<div>
+			<label for="id">Numéro d'identification :</label>
+			<input type="text" name="id" required>
+		</div>
+		<div>
+			<label for="name">Nom de famille :</label>
+			<input type="text" name="name" required>
+		</div>
+		<input type="submit" value="Connexion">
+	</fieldset>
+</form>
+
+{% if connecte == true %}
+
+	<h2>Modifier les informations de l'utilisateur :</h2>
+	<form action="index.php" method="post">
+		<input type="text" name="id" value='{{proprio.getId}}' hidden>
+		<div>
+			<label for="new_nom">Nouveau nom :</label>
+			<input type="text" name="new_nom" value='{{proprio.getNom}}' required>
+		</div>
+		<div>
+			<label for="new_prenom">Nouveau prenom :</label>
+			<input type="text" name="new_prenom" value='{{proprio.getPrenom}}' required>
+		</div>
+		<div>
+			<label for="new_adresse">Nouvelle adresse :</label>
+			<input type="text" name="new_adresse" value='{{proprio.getAdresse}}' required>
+		</div>
+		<div>
+			<label for="new_ville">Nouvelle ville :</label>
+			<input type="text" name="new_ville" value='{{proprio.getVille}}' required>
+		</div>
+		<div>
+			<label for="new_cp">Nouveau code postal :</label>
+			<input type="text" name="new_cp" value='{{proprio.getCp}}' required>
+		</div>
+		<input type="submit" value="Modifier">
+	</form>
+{% endif %}
+<div>
+	<br><hr>
+	{{message}}
+</div>
